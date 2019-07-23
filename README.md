@@ -2,7 +2,7 @@
 <img src="./examples/favicon.ico" alt="mark text" width="100" height="100">
 </p>
 
-<h3 align="center">v-charts</h3>
+<h3 align="center">v-charts-h</h3>
 
 <p align="center">
   <a href="https://travis-ci.org/ElemeFE/v-charts">
@@ -57,7 +57,7 @@ Modern browsers and Internet Explorer 10+, include pc and mobile browser.
 ## Install
 
 ```
-npm i v-charts echarts -S
+npm i v-charts-h echarts -S
 ```
 
 ## Start
@@ -70,7 +70,7 @@ npm i v-charts echarts -S
 </template>
 
 <script>
-import VeLine from 'v-charts/lib/line.common'
+import VeLine from 'v-charts-h/lib/line.common'
 export default {
   components: { VeLine },
   data () {

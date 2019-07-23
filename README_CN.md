@@ -2,7 +2,7 @@
 <img src="./examples/favicon.ico" alt="mark text" width="100" height="100">
 </p>
 
-<h3 align="center">v-charts</h3>
+<h3 align="center">v-charts-h</h3>
 
 <p align="center">
   <a href="https://travis-ci.org/ElemeFE/v-charts">
@@ -58,7 +58,7 @@
 ## 安装
 
 ```
-npm i v-charts echarts -S
+npm i v-charts-h echarts -S
 ```
 
 ## 快速上手
@@ -71,7 +71,7 @@ npm i v-charts echarts -S
 </template>
 
 <script>
-import VeLine from 'v-charts/lib/line.common'
+import VeLine from 'v-charts-h/lib/line.common'
 export default {
   components: { VeLine },
   data () {

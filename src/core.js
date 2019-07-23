@@ -23,6 +23,7 @@ import {
 import setExtend from './modules/extend'
 import setMark from './modules/mark'
 import setAnimation from './modules/animation'
+import ResizeObserver from 'resize-observer-polyfill'
 
 export default {
   render (h) {
@@ -291,7 +292,14 @@ export default {
       this.echarts = echartsLib.init(this.$refs.canvas, themeName, this.initOptions)
       if (this.data) this.changeHandler()
       this.createEventProxy()
-      if (this.resizeable) this.addResizeListener()
+      if (this.resizeable) {
+        this.addResizeListener()
+
+        const ro = new ResizeObserver((entries, observer) => {
+          this.resizeHandler()
+        })
+        ro.observe(this.$refs.canvas)
+      }
     },
 
     addResizeListener () {
