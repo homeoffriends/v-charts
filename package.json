@@ -1,6 +1,6 @@
 {
-  "name": "v-charts",
-  "version": "1.19.0",
+  "name": "v-charts-h",
+  "version": "1.0.0",
   "description": "Vue Echarts Components",
   "main": "lib/index.js",
   "scripts": {
@@ -15,16 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElemeFE/v-charts.git"
+    "url": "git+https://github.com/homeoffriends/v-charts.git"
   },
   "keywords": [
     "vue",
     "echarts"
   ],
-  "author": "xiguaxigua",
+  "author": "homeoffriends",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ElemeFE/v-charts/issues"
+    "url": "https://github.com/homeoffriends/v-charts/issues"
   },
   "homepage": "https://v-charts.js.org",
   "peerDependencies": {
