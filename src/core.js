@@ -295,10 +295,10 @@ export default {
       if (this.resizeable) {
         this.addResizeListener()
 
-        const ro = new ResizeObserver((entries, observer) => {
+        this.ro = new ResizeObserver((entries, observer) => {
           this.resizeHandler()
         })
-        ro.observe(this.$refs.canvas)
+        this.ro.observe(this.$refs.canvas)
       }
     },
 
@@ -354,13 +354,18 @@ export default {
     },
 
     clean () {
-      if (this.resizeable) this.removeResizeListener()
+      if (this.resizeable) {
+        this.removeResizeListener()
+        this.ro.disconnect()
+        this.ro = null
+      }
       this.echarts.dispose()
     }
   },
 
   created () {
     this.echarts = null
+    this.ro = null
     this.registeredEvents = []
     this._once = {}
     this._store = {}
