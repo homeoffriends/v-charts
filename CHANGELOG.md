@@ -1,4 +1,4 @@
-<a name="1.0.1"></a>
+﻿<a name="1.0.1"></a>
 # [1.0.1](https://github.com/ElemeFE/v-charts/compare/v1.0.0...v1.0.1) (2019-07-23)
 
 ### Features
@@ -9,6 +9,7 @@
 
 ### Features
 * **core:** suport CommonData,the sample data is as follows,alse use data attribute:
+```html
      var commonData = {
         columns: [
           {
@@ -39,3 +40,4 @@
           { date: "1/6", visitUserNum: 4593, buyUserNum: 4293 },
         ],
       }
+```
