@@ -46,6 +46,12 @@ export default {
     ])
   },
 
+  data () {
+    return {
+      chartData: null
+    }
+  },
+
   props: {
     data: { type: [Object, Array], default () { return {} } },
     settings: { type: Object, default () { return {} } },
@@ -103,7 +109,7 @@ export default {
   watch: {
     data: {
       deep: true,
-      handler (v) { if (v) { this.changeHandler() } }
+      handler (v) { if (v) { this.chartData = this.commonDataToVChartData(); this.changeHandler() } }
     },
 
     settings: {
@@ -143,13 +149,17 @@ export default {
 
     chartColor () {
       return this.colors || (this.theme && this.theme.color) || DEFAULT_COLORS
+    },
+
+    chartData () {
+      return this.commonDataToVChartData()
     }
   },
 
   methods: {
     dataHandler () {
       if (!this.chartHandler) return
-      let data = this.data
+      let data = this.chartData
       const { columns = [], rows = [] } = data
       const extra = {
         tooltipVisible: this.tooltipVisible,
@@ -295,10 +305,10 @@ export default {
       if (this.resizeable) {
         this.addResizeListener()
 
-        const ro = new ResizeObserver((entries, observer) => {
+        this.ro = new ResizeObserver((entries, observer) => {
           this.resizeHandler()
         })
-        ro.observe(this.$refs.canvas)
+        this.ro.observe(this.$refs.canvas)
       }
     },
 
@@ -354,13 +364,61 @@ export default {
     },
 
     clean () {
-      if (this.resizeable) this.removeResizeListener()
+      if (this.resizeable) {
+        this.removeResizeListener()
+        this.ro.disconnect()
+        this.ro = null
+      }
       this.echarts.dispose()
+    },
+
+    /*
+     * @description adapt commonData to data
+     * @author homeoffriends
+     */
+    commonDataToVChartData () {
+      let that = this
+      let newData = null
+
+      if (
+        that.data &&
+        that.data.columns &&
+        that.data.columns.length > 0 &&
+        typeof that.data.columns[0] === 'object'
+      ) {
+        var cols = []
+        var rows = []
+        if (that.data.columns && that.data.columns.length > 0) {
+          that.data.columns.forEach(function (val) {
+            cols.push(val.name)
+          })
+        }
+        if (that.data.rows && that.data.rows.length > 0) {
+          that.data.rows.forEach(function (val) {
+            var obj = {}
+            that.data.columns.forEach(function (value) {
+              var key = value['field']
+              obj[value['name']] = val[key]
+            })
+            rows.push(obj)
+          })
+        }
+
+        newData = {
+          columns: cols,
+          rows: rows
+        }
+      } else {
+        newData = that.data
+      }
+
+      return newData
     }
   },
 
   created () {
     this.echarts = null
+    this.ro = null
     this.registeredEvents = []
     this._once = {}
     this._store = {}
