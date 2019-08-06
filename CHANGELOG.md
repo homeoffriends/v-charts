@@ -9,6 +9,7 @@
 
 ### Features
 * **core:** suport CommonData,the sample data is as follows,alse use data attribute:
+```html
      var commonData = {
         columns: [
           {
@@ -39,3 +40,4 @@
           { date: "1/6", visitUserNum: 4593, buyUserNum: 4293 },
         ],
       }
+```

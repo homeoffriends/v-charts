@@ -9,6 +9,7 @@
 
 ### Features
 * **core:** 支持更通用的数据格式，我们称为CommonData,样例数据如下,依然用data属性，我们在内部做了适配:
+```html
      var commonData = {
         columns: [
           {
@@ -39,3 +40,4 @@
           { date: "1/6", visitUserNum: 4593, buyUserNum: 4293 },
         ],
       }
+```
