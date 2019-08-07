@@ -41,3 +41,9 @@
         ],
       }
 ```
+
+<a name="1.0.3"></a>
+# [1.0.3](https://github.com/ElemeFE/v-charts/compare/v1.0.2...v1.0.3) (2019-08-07)
+
+### Bug Fixes
+* **core:** the setter error when changing CommonData to data
