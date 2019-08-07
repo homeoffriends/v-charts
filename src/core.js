@@ -109,7 +109,7 @@ export default {
   watch: {
     data: {
       deep: true,
-      handler (v) { if (v) { this.chartData = this.commonDataToVChartData(); this.changeHandler() } }
+      handler (v) { if (v) { this.changeHandler() } }
     },
 
     settings: {
