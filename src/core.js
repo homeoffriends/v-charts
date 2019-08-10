@@ -161,14 +161,17 @@ export default {
       if (!this.chartHandler) return
       let data = this.chartData
       const { columns = [], rows = [] } = data
-      const extra = {
+      let extra = {
         tooltipVisible: this.tooltipVisible,
         legendVisible: this.legendVisible,
         echarts: this.echarts,
-        color: this.chartColor,
         tooltipFormatter: this.tooltipFormatter,
         _once: this._once
       }
+      if(!(this.themeName&&!this.colors&&!(this.theme && this.theme.color))){
+        extra=Object.assign(extra, {color: this.chartColor})
+      }
+
       if (this.beforeConfig) data = this.beforeConfig(data)
 
       let options = this.chartHandler(columns, rows, this.settings, extra)
@@ -207,7 +210,9 @@ export default {
         }
       }
       // color
-      options.color = this.chartColor
+      if(!(this.themeName&&!this.colors&&!(this.theme && this.theme.color))){
+        options.color = this.chartColor
+      }
       // echarts self settings
       ECHARTS_SETTINGS.forEach(setting => {
         if (this[setting]) options[setting] = this[setting]
