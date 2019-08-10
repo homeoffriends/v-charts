@@ -47,3 +47,9 @@
 
 ### Bug Fixes
 * **core:** the setter error when changing CommonData to data
+
+<a name="1.0.4"></a>
+# [1.0.4](https://github.com/ElemeFE/v-charts/compare/v1.0.3...v1.0.4) (2019-08-10)
+
+### Bug Fixes
+* **core:** When setting theme-name,the color of the theme doesn't work.

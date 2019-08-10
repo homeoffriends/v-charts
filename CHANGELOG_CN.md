@@ -47,3 +47,9 @@
 
 ### Bug Fixes
 * **core:** 解决将CommonData转换为data时报setter错误的问题
+
+<a name="1.0.4"></a>
+# [1.0.4](https://github.com/ElemeFE/v-charts/compare/v1.0.3...v1.0.4) (2019-08-10)
+
+### Bug Fixes
+* **core:** 通过theme-name设置新主题时，主题中的color不起作用
