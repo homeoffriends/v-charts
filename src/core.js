@@ -168,8 +168,14 @@ export default {
         tooltipFormatter: this.tooltipFormatter,
         _once: this._once
       }
-      if(!(this.themeName&&!this.colors&&!(this.theme && this.theme.color))){
-        extra=Object.assign(extra, {color: this.chartColor})
+      if (
+        !(
+          this.themeName &&
+          !this.colors &&
+          !(this.theme && this.theme.color)
+        )
+      ) {
+        extra = Object.assign(extra, { color: this.chartColor })
       }
 
       if (this.beforeConfig) data = this.beforeConfig(data)
@@ -210,7 +216,13 @@ export default {
         }
       }
       // color
-      if(!(this.themeName&&!this.colors&&!(this.theme && this.theme.color))){
+      if (
+        !(
+          this.themeName &&
+          !this.colors &&
+          !(this.theme && this.theme.color)
+        )
+      ) {
         options.color = this.chartColor
       }
       // echarts self settings
